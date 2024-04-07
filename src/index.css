@@ -12,9 +12,31 @@ body{
   font-weight: 300;
 }
 
+/* Работает в Firefox */
+/* * {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+} */
+
+/* Работает в Chrome, Edge и Safari */
+*::-webkit-scrollbar {
+  width: 0.3vw;
+  height: 0.3vw;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #dbd9d9;
+  border-radius: 4px;
+}
+
+
 .wrapper {
-  width: 1280px;
-  margin: 50px auto;
+  width: 80vw;
+  margin: 3.5vw auto;
 }
 header{
   position: relative;
@@ -22,19 +44,21 @@ header{
 
 header .logo{
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.5vw;
 }
 
 header ul.nav{
   float: right;
   list-style: none;
+  line-height: 1.5vw;
 }
 
 header ul.nav li{
   font-weight: 400;
   display: inline;
-  margin-left: 25px;
+  margin-left: 1.5vw;
   cursor: pointer;
+  font-size: 1vw;
   transition: opacity 500ms ease;
 }
 
@@ -45,52 +69,64 @@ header .shop-cart-button{
   float: right;
   cursor: pointer;
   transition: transform, color 500ms ease;
+  width: 1.5vw;
+  height: 1.5vw;
 }
 
 header .shop-cart-button:hover,
 header .shop-cart-button.active{
-  transform: scale(1.5);
+  transform: scale(1.2);
   color: #dc3d3d;
 }
 
 header .shop-cart {
   position: absolute;
-  top: 30px;
-  right: 0;
-  width: 450px;
+  top: 1.7vw;
+  right: -1vw;
+  width: 25vw;
   background-color: #fafafa;
   -webkit-box-shadow: 4px 5px 15px -7px #606060;
   -moz-box-shadow: 4px 5px 15px -7px #606060;
   box-shadow: 4px 5px 15px -7px #606060;
   z-index: 100;
+  max-height: 22.5vw;
 
-  padding: 20px;
+  padding: 1.5vw;
   padding-bottom: 0;
+}
+
+header .shop-cart > div{
+  overflow: auto;
+  max-height: 19.5vw;
 }
 
 header .shop-cart .item {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 1vw;
   float: left;
 }
 
 header .shop-cart .empty h2{
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 1vw;
+  margin-bottom: 1vw;
 }
 
 header .shop-cart .item img {
-  width: 70px;
+  width: 5.5vw;
   float: left;
-  margin-right: 20px;
+  margin-right: 1vw;
 }
 
 header .shop-cart .item h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 1vw;
+  margin-bottom: 0.2vw;
+  overflow: scroll;
+  text-wrap: nowrap;
+  margin-right: 3vw;
 }
 
 header .shop-cart .item p {
+  font-size: 1vw;
   color: #797979;
   font-weight: 600;
 }
@@ -99,29 +135,32 @@ header .shop-cart .item .delete-icon {
   color: #ca5252;
   float: right;
   position: relative;
-  top: -25px;
+  width: 1.5vw;
+  height: 1.5vw;
+  right: 1vw;
+  top: -1vw;
   cursor: pointer;
   transition: transform, color 500ms ease;
 }
 
 header .shop-cart .item .delete-icon:hover{
-  transform: scale(1.5);
+  transform: scale(1.2);
   color: #d83030;
 }
 
 header .shop-cart .summa {
   float: left;
   width: 100%;
-  margin-bottom: 20px;
+  margin: 0.5vw 0 1vw 0;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.2vw;
 }
 
 header .presentation {
-  margin: 50px 0;
+  margin: 2vw 0;
   background: url("./static/images/background.jpg");
   width: 100%;
-  height: 500px;
+  height: 35vw;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -132,10 +171,10 @@ header .presentation {
 
 header .presentation::after{
   position: absolute;
-  top: 100px;
-  left: 50px;
-  width: 300px;
-  font-size: 40px;
+  top: 6vw;
+  left: 4vw;
+  width: 25vw;
+  font-size: 3vw;
   font-weight: 600;
   color: white;
   content: 'Лучшие товары для вашего дома';
@@ -143,10 +182,10 @@ header .presentation::after{
 
 header .presentation::before{
   position: absolute;
-  top: 250px;
-  left: 50px;
-  width: 300px;
-  font-size: 15px;
+  top: 17.5vw;
+  left: 4.2vw;
+  width: 25vw;
+  font-size: 1.5vw;
   font-weight: 300;
   color: #fff;
   content: 'по низким ценам';
@@ -156,9 +195,10 @@ header .presentation::before{
   display: inline-block;
   background: #f2f2f2;
   border-radius: 50px;
-  padding: 10px 20px;
-  margin-bottom: 25px;
-  margin-right: 15px;
+  padding: 0.6vw 1.2vw;
+  font-size: 1.1vw;
+  margin-bottom: 1.5vw;
+  margin-right: 1vw;
   cursor: pointer;
   border: 1px solid transparent;
   transition: all 500ms ease;
@@ -166,7 +206,7 @@ header .presentation::before{
 
 .categories div:hover{
   border-color: silver;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .full-item {
@@ -190,7 +230,11 @@ header .presentation::before{
 }
 
 main{
-  display: flex;
+  display: grid;
+  row-gap: 2vw;
+  column-gap: 2vw;
+  grid-auto-rows: 29.2vw;
+  grid-template-columns: repeat(4, 1fr);
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
@@ -198,11 +242,10 @@ main{
 
 main .item {
   position: relative;
-  width: 30%;
-  margin-bottom:  50px;
+  width: 100%;
   background: #f5f5f5;
   overflow: hidden;
-  padding-bottom: 20px;
+  padding-bottom: 3vw;
 }
 
 main .item img ,
@@ -220,8 +263,33 @@ main .item img:hover,
 
 main h2, main p, main b,
 .full-item h2, .full-item p, .full-item b{
-  margin: 10px 20px;
+  
+  hyphens: auto;
+  margin: 0.5vw 1.3vw;
   color: #333;
+}
+
+main h2 {
+
+  overflow-y: auto;
+  font-size: 1.2vw;
+  max-height: 3vw;
+}
+
+main p {
+  overflow: hidden;
+  display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  font-size: 0.9vw;
+  font-weight: 400;
+  max-height: 4vw;
+}
+
+main b {
+  position: absolute;
+  font-size: 1.2vw;
+  bottom: 0.5vw;
 }
 
 main b,
@@ -232,13 +300,14 @@ main b,
 main .add-to-cart,
 .full-item .add-to-cart{
   position: absolute;
-  right: 20px;
-  bottom: 20px;
+  right: 1vw;
+  bottom: 0.8vw;
   background: #ca5252;
-  width: 35px;
-  height: 35px;
+  width: 2vw;
+  height: 2vw;
   text-align: center;
-  line-height: 35px;
+  font-size: 1.3vw;
+  line-height: 2vw;
   color: #fff;
   border-radius: 50%;
   cursor: pointer;
@@ -248,11 +317,11 @@ main .add-to-cart,
 
 main .add-to-cart:hover,
 .full-item .add-to-cart:hover{
-  transform: scale(1.3) translateY(-5px);
+  transform: scale(1.1) translateY(-5px);
 }
 
 
 footer{
   text-align: center;
-  margin-top: 100px;
+  margin-top: 4vw;
 }

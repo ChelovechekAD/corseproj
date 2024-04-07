@@ -17,16 +17,16 @@ class App extends React.Component {
       items: [
         {
           id: 1,
-          title: 'Стул серый',
-          img: 'chair-grey.jpg',
+          title: 'Стул серый ddddddddssssss asdas dasdasdadda sdfaasdads',
+          img: 'table-white.jpg',
           desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
           category: 2,
           price: '49.99'
         },
         {
           id: 2,
-          title: 'Стул серый',
-          img: 'chair-grey.jpg',
+          title: 'Стул серый ddddddddssss',
+          img: 'table-white.jpg',
           desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
           category: 2,
           price: '549.99'
@@ -42,7 +42,7 @@ class App extends React.Component {
         {
           id: 4,
           title: 'Стул серый',
-          img: 'chair-grey.jpg',
+          img: 'table-white.jpg',
           desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
           category: 2,
           price: '249.99'
@@ -50,7 +50,7 @@ class App extends React.Component {
         {
           id: 5,
           title: 'Стул серый',
-          img: 'chair-grey.jpg',
+          img: 'table-white.jpg',
           desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
           category: 2,
           price: '149.99'
