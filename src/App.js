@@ -25,7 +25,7 @@ class App extends React.Component {
         },
         {
           id: 2,
-          title: 'Стул серый ddddddddssss',
+          title: 'Стул серый',
           img: 'table-white.jpg',
           desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
           category: 2,

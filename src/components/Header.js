@@ -41,7 +41,7 @@ export default function Header(props) {
                 <div className='shop-cart'>
                   {props.orders.length > 0 ?
                       showOrders(props) : showNothing()}
-                  {props.orders.length > 0 && (<p className='summa'>Сумма: {new Intl.NumberFormat().format(summa)}$</p>)}
+                  {props.orders.length > 0 && <p className='summa'>Сумма: {new Intl.NumberFormat().format(summa)}$</p>}
                 
                 </div>
             )}
