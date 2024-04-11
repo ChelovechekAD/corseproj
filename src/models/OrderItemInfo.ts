@@ -3,5 +3,5 @@ export default interface OrderItemInfo{
     count: number,
     price: number,
     name: string,
-    image_link: string,
+    imageLink: string,
 }
