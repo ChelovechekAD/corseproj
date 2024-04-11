@@ -1,0 +1,9 @@
+.admin-page{
+    padding: 1vw;
+    padding-top: 3vw;
+    display: flex;
+}
+
+.admin-page .order{
+    width: 50%;
+}

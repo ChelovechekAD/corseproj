@@ -1,0 +1,97 @@
+.order-page .items .item{
+    float: left;
+}
+.order-page .items .item img{
+    width: 5.5vw;
+    float: left;
+    margin-right: 1vw;
+}
+
+.order-page {
+    width: 100%;
+    padding-top: 3vw;
+    display: flex;
+}
+
+.order-page .items {
+    width: 65%;
+    row-gap: 1vw;
+    column-gap: 1vw;
+    grid-auto-rows: 5.5vw;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1vw;
+    display: grid;
+    flex-direction: column;
+}
+
+.order-page .items .item p:first-of-type{
+    font-size: 1vw;
+}
+.order-page .items .item p:last-of-type{
+    font-size: 0.9vw;
+}
+
+
+.order-page .items .item h2{
+    margin-right: 3vw;
+    overflow: hidden;
+    font-size: 1.3vw;
+    text-wrap: nowrap;
+}
+
+.order-page .items .item .delete-icon {
+    color: #ca5252;
+    float: right;
+    position: relative;
+    width: 1.5vw;
+    height: 1.5vw;
+    right: 1vw;
+    top: -2vw;
+    cursor: pointer;
+    transition: transform, color 500ms ease;
+}
+
+.order-page .items .item .delete-icon:hover{
+  transform: scale(1.2);
+  color: #d83030;
+}
+
+.order-page .form {
+    padding: 0.5vw;
+    width: 35%;
+}
+
+.order-page .form-input{
+    display: flex;
+    flex-direction: column;
+}
+
+.order-items {
+    padding: 1vw;
+    width: 50%;
+    
+}
+
+.order-items > div:first-of-type{
+    display: grid;
+    grid-auto-rows: 5vw;
+    row-gap: 1vw;
+}
+
+
+.order-items .item img{
+    width: 5vw;
+    float: left;
+    margin-right: 2vw;
+}
+
+.order-items .item h2{
+    font-size: 1.4vw;
+}
+.order-items .item p{
+    font-size: 1vw;
+}
+
+.pagination-block{
+    font-size: 1vw;
+}

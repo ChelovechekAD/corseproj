@@ -10,6 +10,8 @@ body{
   color: #222;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
+  user-select: auto;
+  
 }
 
 /* Работает в Firefox */
@@ -33,13 +35,20 @@ body{
   border-radius: 4px;
 }
 
+.none {
+  display: none;
+}
 
 .wrapper {
+  position: relative;
   width: 80vw;
-  margin: 3.5vw auto;
+  padding-bottom: 10vh;
+  min-height: 90vh;
+  margin: 0 auto;
 }
 header{
   position: relative;
+  padding-top: 3.5vw;
 }
 
 header .logo{
@@ -51,18 +60,23 @@ header ul.nav{
   float: right;
   list-style: none;
   line-height: 1.5vw;
+  margin-right: 1vw;
 }
 
-header ul.nav li{
+header ul.nav .li{
   font-weight: 400;
   display: inline;
   margin-left: 1.5vw;
   cursor: pointer;
   font-size: 1vw;
+  text-decoration: none;
+  color: #797979;
   transition: opacity 500ms ease;
 }
 
-header ul.nav li:hover{
+
+header ul.nav .li:hover{
+  color: #bcbcbc;
   opacity: 0.5;
 }
 header .shop-cart-button{
@@ -81,8 +95,8 @@ header .shop-cart-button.active{
 
 header .shop-cart {
   position: absolute;
-  top: 1.7vw;
-  right: -1vw;
+  top: 6vw;
+  right: 9vw;
   width: 25vw;
   background-color: #fafafa;
   -webkit-box-shadow: 4px 5px 15px -7px #606060;
@@ -112,6 +126,7 @@ header .shop-cart .empty h2{
 }
 
 header .shop-cart .item img {
+  user-select: none;
   width: 5.5vw;
   float: left;
   margin-right: 1vw;
@@ -126,9 +141,14 @@ header .shop-cart .item h2 {
 }
 
 header .shop-cart .item p {
+  float: left;
+  width: 12vw;
   font-size: 1vw;
   color: #797979;
   font-weight: 600;
+}
+header .shop-cart .item p:last-of-type{
+  font-size: 0.8vw;
 }
 
 header .shop-cart .item .delete-icon {
@@ -150,10 +170,30 @@ header .shop-cart .item .delete-icon:hover{
 
 header .shop-cart .summa {
   float: left;
-  width: 100%;
+
   margin: 0.5vw 0 1vw 0;
   font-weight: 600;
   font-size: 1.2vw;
+}
+
+header .shop-cart .do-order{
+  float: right;
+  margin-top: 0.5vw;
+  color: #838383;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1vw;
+  transition: transform 500ms ease;
+}
+
+header .shop-cart .do-order:hover{
+  transform: scale(1.1);
+  color: #ca5252;
+}
+
+header .shop-cart .do-order:active{
+  transform: scale(1.05);
+  color: #772c2c;
 }
 
 header .presentation {
@@ -191,8 +231,36 @@ header .presentation::before{
   content: 'по низким ценам';
 }
 
+.user-info{
+  float: right;
+  padding: 0 0 0 1vw;
+  display: flex;
+
+}
+.user-info h1 {
+  margin-right: 0.7vw;
+  margin-left: 0.4vw;
+  font-size: 1.2vw;
+}
+
+.user-info .exit,
+.user-info .account {
+  color: black;
+  width: 1.4vw;
+  height: 1.4vw;
+  transition: transform 500ms ease;
+}
+
+.user-info .exit:hover,
+.user-info .account:hover {
+  cursor: pointer;
+  color: #d83030;
+  transform: scale(1.2);
+}
+
 .categories div {
   display: inline-block;
+  user-select: none;
   background: #f2f2f2;
   border-radius: 50px;
   padding: 0.6vw 1.2vw;
@@ -207,6 +275,16 @@ header .presentation::before{
 .categories div:hover{
   border-color: silver;
   transform: scale(1.05);
+}
+
+.categories div:active{
+  border-color: rgb(129, 129, 129);
+  transform: scale(1.02);
+  background-color: #cacaca;
+}
+
+.categories .active {
+  border: 1px darkgray solid;
 }
 
 .full-item {
@@ -229,15 +307,19 @@ header .presentation::before{
   border-radius: 9px;
 }
 
-main{
+main {
+  
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+main > div:first-of-type{
   display: grid;
   row-gap: 2vw;
   column-gap: 2vw;
   grid-auto-rows: 29.2vw;
   grid-template-columns: repeat(4, 1fr);
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: space-between;
 }
 
 main .item {
@@ -254,6 +336,23 @@ main .item img ,
   border-radius: 10px 10px 0 0;
   transition: transform 500ms ease;
   cursor: pointer;
+}
+
+main .item .rating {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: -1vw;
+  top: 15.5vw;
+  font-size: 1.5vw;
+  color: rgb(231, 197, 85);
+  font-weight: 500;
+}
+
+main .item .rating-icon{
+  
+  width: 2vw;
+  height: 2vw;
 }
 
 main .item img:hover,
@@ -300,6 +399,7 @@ main b,
 main .add-to-cart,
 .full-item .add-to-cart{
   position: absolute;
+  user-select: none;
   right: 1vw;
   bottom: 0.8vw;
   background: #ca5252;
@@ -319,9 +419,144 @@ main .add-to-cart:hover,
 .full-item .add-to-cart:hover{
   transform: scale(1.1) translateY(-5px);
 }
+main .add-to-cart:active,
+.full-item .add-to-cart:active{
+  transform: scale(1.05) ;
+  background-color: #6d2e2e;
+}
 
+main .item .counter {
+  position: absolute;
+  bottom: 1.1vw;
+  right: 4vw;
+  user-select: none;
+  display: flex;
+  align-items: center;
+}
+
+main .item .counter p {
+  margin: 0 0.5vw;
+  font-size: 1vw;
+  font-weight: 700;
+}
+
+main .item .counter .counter-func{
+  width: 1.2vw;
+  height: 1.2vw;
+  transition: all ease 500ms;
+}
+
+main .item .counter .counter-func:hover {
+  transform: scale(1.2);
+  color: #ca5252;
+}
+
+main .item .counter .counter-func:active {
+  transform: scale(1.1);
+  color: #551a1a;
+}
+
+.pagination-block {
+  padding: 2vw;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: center;
+  
+}
 
 footer{
+  user-select: none;
   text-align: center;
-  margin-top: 4vw;
+  position: absolute;
+  width: 100%;
+  bottom: 3vh;
+}
+
+.fullscreen-block{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  /* background: url('./static/images/background.jpg');
+  background-color: #979797;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode:multiply; */
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.226);
+}
+
+#error-message{
+  position: fixed;
+  z-index: 100000;
+  right: 20px;
+  bottom: 20px;
+  max-width: 20vw;
+  padding: 2vw;
+  background: rgba(148, 52, 52, 0.74);
+  color: white;
+  border: 3px solid rgb(241, 88, 88);
+  border-radius: 2vw;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#error-message p:first-of-type {
+  font-weight: 600;
+}
+
+#loading-icon{
+  width: 20vw;
+  height: 20vw;
+  position: absolute;
+  top: 30vh;
+  left: 40vw;
+  color: rgb(241, 208, 144);
+  animation: rotate 4s linear infinite;
+}
+
+#admin-panel{
+  position: fixed;
+  right: 1vw;
+  top: 1vw;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  padding: 0.3vw 0.5vw;
+  border: 2px solid #838383;
+  border-radius: 2vw;
+  font-size: 0.8vw;
+  background-color: #eeeeee;
+  transition: all 500ms ease;
+}
+
+#admin-panel:hover{
+  scale: 1.1;
+  background-color: #d8d8d8;
+}
+
+#admin-panel:active{
+  scale: 1.05;
+  background-color: #a5a5a5;
+}
+
+@keyframes fadeIn {
+  from {
+    scale: 0;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
