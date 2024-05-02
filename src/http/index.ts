@@ -3,7 +3,7 @@ import { store } from '../Context';
 import { IUser } from '../models/IUser';
 
 
-export const API_URL = `http://localhost:8080/backproj/api`
+export const API_URL = `http://localhost:8081/CourseProject_war_exploded/api`
 
 const $api = axios.create({
     withCredentials: true,

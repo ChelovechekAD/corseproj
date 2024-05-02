@@ -95,3 +95,64 @@
 .pagination-block{
     font-size: 1vw;
 }
+
+.form-input > input{
+    border: 0;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    margin: 1vw 0;
+    line-height: 2vw;
+    font-size: 1.2vw;
+}
+
+.form-input > button{
+    padding: 0.5vw;
+    border: 1px solid black;
+    font-size: 1.3vw;
+    height: 3vw;
+    background-color: transparent;
+    border-radius: 2vw;
+    transition: all 500ms ease;
+}
+
+.form-input > button:hover {
+    scale: 1.05     ;
+    background-color: #ca5252;
+    color: white;
+}
+
+.form-input > button:active {
+    background-color: #9c3e3e;
+}
+.form-input > p {
+    font-size: 1.2vw;
+}
+
+.form > p:last-of-type{
+    padding: 1vw;
+    font-size: 1.5vw;
+}
+
+.form > button:last-of-type {
+    padding: 0.6vw;
+    width: 100%;
+    border-radius: 2vw;
+    border: 1px solid black;
+    font-size: 1.3vw;
+    background-color: transparent;
+    transition: all 500ms ease;
+}
+
+.form > button:last-of-type:hover{
+    scale: 1.05     ;
+    background-color: #ca5252;
+    color: white;
+}
+
+.form > button:last-of-type:active{
+    background-color: #9c3e3e;
+}
+
+.order-user-info > p{
+    height: 1vw;
+}

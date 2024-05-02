@@ -41,8 +41,8 @@ function OrderPage() {
             </div>
             <div className='form'>
                 <OrderForm userIn={user}/>
-                {orderCartStore.userAddressPresent && (<p>Total price: {new Intl.NumberFormat().format( orderCartStore.sumPrice)}$</p>)}
-                {orderCartStore.userAddressPresent && (<button onClick={onCl}>Заказать</button>)}
+                {orderCartStore.getUserAddressPresent() && (<p>Total price: {new Intl.NumberFormat().format( orderCartStore.sumPrice)}$</p>)}
+                {orderCartStore.getUserAddressPresent() && (<button onClick={onCl}>Заказать</button>)}
             </div>
         </div>
 

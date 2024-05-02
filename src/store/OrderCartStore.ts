@@ -24,6 +24,17 @@ export default class OrderCartStore {
         this.setSumPrice();
     }
 
+    getUserAddressPresent(){
+        if (store.user.city != "" && store.user.building != "" && store.user.street != "") {
+            this.setUserAddressPresent(true);
+            return true;
+        } else {
+            console.log("user addr: " + store.user.city + " " + store.user.building + " " + store.user.street);
+            this.setUserAddressPresent(false);
+            return false;
+        }
+    }
+
     setUserAddressPresent(bool:boolean){
         this.userAddressPresent = bool;
     }

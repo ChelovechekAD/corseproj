@@ -46,6 +46,9 @@ export default function OrderForm({userIn}: OrderFormProps) {
 
     return (
         <div className='form-input'>
+            {(store.user.city == "" || store.user.building == "" || store.user.street == "")
+            ? <p>Перед оформлением заказа необходимо ввести адрес</p>
+            : <p>Вы можете изменить адрес доставки</p>}
             <input onChange={handleChange}
                 name='building'
                 value={formData.building}
