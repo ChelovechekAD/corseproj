@@ -9,18 +9,18 @@ export default class OrderService {
     
 
     static async createOrder(order: OrderTemplate): Promise<void> {
-        await $api.post("/create_order", order)
+        await $api.post("/cart/add/order", order)
     }
     
     static async getListOfOrders(pageNum: number): Promise<AxiosResponse<OrdersResponse>>{
-        return await $api.get("/orders_page", {params: {
+        return await $api.get("/admin/get/orders", {params: {
             pageNum: pageNum,
             countPerPage: COUNT_OF_ORDERS_PER_PAGE,
         }})
     }
 
     static async getOrderItems(orderId: number, pageNum:number): Promise<AxiosResponse<OrderItemsResponse>>{
-        return await $api.get("/order_items", {params: {
+        return await $api.get("/user/orders/"+orderId+"/items", {params: {
             pageNum: pageNum,
             countPerPage: COUNT_OF_ORDER_ITEMS_PER_PAGE,
             orderId: orderId,

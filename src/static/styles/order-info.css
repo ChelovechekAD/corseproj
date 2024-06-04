@@ -14,5 +14,10 @@
 
 
 .list-block .order-item {
-    font-size: 1vw;    
+    font-size: 1vw;
+    padding: .5vw;
+}
+
+.list-block .active {
+    border: 1px solid #c9c9c9;
 }

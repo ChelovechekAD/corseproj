@@ -16,7 +16,7 @@ function OrderPage() {
     useEffect(()=>{
         console.log(user.city)
         if (orderCartStore.items.length === 0){
-            orderCartStore.getCart(parseInt(user.id));
+            orderCartStore.getCart();
         }
         // orderCartStore.getCart(parseInt(user.id))
         if (user.building == null || user.city == null || user.street == null){

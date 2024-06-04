@@ -6,14 +6,14 @@ import LoginFormData from "../models/request/LoginFormData";
 
 export default class AuthService {
     static async login(loginRequest: LoginFormData): Promise<AxiosResponse<AuthResponse>> {
-        return await $api.post<AuthResponse>('/login', loginRequest);
+        return await $api.post<AuthResponse>('/auth/login', loginRequest);
     }
 
     static async registration(registrationRequest: RegistrationFormData): Promise<void> {
-        await $api.post('/registration', registrationRequest);
+        await $api.post('/auth/registration', registrationRequest);
     }
 
     static async logout(): Promise<void> {
-        await $api.post('/logout');
+        await $api.post('/auth/logout');
     }
 }

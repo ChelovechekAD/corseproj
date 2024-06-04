@@ -100,9 +100,9 @@ export default class OrderCartStore {
         
     }   
 
-    async getCart(userId: number){
+    async getCart(){
         try{
-            const items = await CartService.getAllCart(userId);
+            const items = await CartService.getAllCart();
             if (items.data.cartItemDTOList.length !== 0){
                 this.setItems(items.data.cartItemDTOList);
             }

@@ -6,21 +6,20 @@ import { COUNT_OF_PRODUCTS_PER_PAGE } from "../utils/Constants";
 
 export default class CatalogService {
     static async getAllCategories(): Promise<AxiosResponse<CategoriesResponse>> {
-        return await $api.get("/all_categories");
+        return await $api.get("/catalog/categories");
     }
 
-    static async getAllProductsPage(pageNum: number): Promise<AxiosResponse<ProductsPageResponse>> {
-        return await $api.get("/products_page", {params: {
-            pageNum: pageNum,
-            countPerPage: COUNT_OF_PRODUCTS_PER_PAGE
-        }});
+    static async getAllProductsPage(pageNum: number, categoryId: number | null): Promise<AxiosResponse<ProductsPageResponse>> {
+        let categoryFilter : string | null = null;
+
+        if (categoryId !== null && categoryId !== 0) {
+            categoryFilter = "category=" + categoryId;
+        }
+        return await $api.get("/catalog/products", {params: {
+                pageNum: pageNum,
+                countPerPage: COUNT_OF_PRODUCTS_PER_PAGE,
+                categoryFilter: categoryFilter
+            }});
     }
 
-    static async getAllCategoryProductsPage(pageNum: number, categoryId: number): Promise<AxiosResponse<ProductsPageResponse>> {
-        return await $api.get("/category_products_page", {params: {
-            pageNum: pageNum,
-            countPerPage: COUNT_OF_PRODUCTS_PER_PAGE,
-            categoryId: categoryId
-        }});
-    }
 }

@@ -3,7 +3,7 @@ import { store } from '../Context';
 import { IUser } from '../models/IUser';
 
 
-export const API_URL = `http://localhost:8081/CourseProject_war_exploded/api`
+export const API_URL = `http://localhost:8080/api/v1/`
 
 const $api = axios.create({
     withCredentials: true,
@@ -17,10 +17,6 @@ $api.interceptors.request.use((config) => {
         config.headers.Authorization = `Bearer ${token}`;
     }
     
-    let url: string = config.url ?? '';
-    let command: string = url?.substring(url.lastIndexOf("/")+1);
-    console.log("Command: " + command);
-    config.headers["Command"] = command;
     console.log("Request body: " + config.data);
     return config;
 })
@@ -32,17 +28,15 @@ $api.interceptors.response.use((config) => {
     if (error.response.status === 401 && error.config && !error.config._isRetry) {
         originalRequest._isRetry = true;
         try {
-            const response = await axios.get(`${API_URL}/refresh`, {
+            const response = await axios.post(`${API_URL}auth/refresh`, {},{
                 withCredentials: true,
-                headers: {
-                    'Command': 'refresh'
-                }
             })
             localStorage.setItem('access-token', response.data.accessToken);
             return $api.request(originalRequest);
         } catch (e) {
             store.setAuth(false);
             store.setUser({} as IUser);
+            localStorage.removeItem('access-token');
             console.log('НЕ АВТОРИЗОВАН')
         }
     }

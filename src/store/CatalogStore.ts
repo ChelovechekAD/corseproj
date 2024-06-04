@@ -40,10 +40,8 @@ export default class CatalogStore {
 
     async getAllCategories(){
         try {
-
             const categoriesResponse = await CatalogService.getAllCategories();
             this.setCategory(categoriesResponse.data.categoryDTOList);
-
         } catch (e){
             console.log(e);
         }
@@ -51,11 +49,7 @@ export default class CatalogStore {
 
     async getAllProductsPage(pageNum: number){
         try {
-
-            let productsResponse;
-            this.selectedCategory === 0 ?  
-                productsResponse = await CatalogService.getAllProductsPage(pageNum) :
-                productsResponse = await CatalogService.getAllCategoryProductsPage(pageNum, this.selectedCategory);
+            let productsResponse = await CatalogService.getAllProductsPage(pageNum, this.selectedCategory);
             this.setItems(productsResponse.data.productDTOList);
             this.setTotalCount(productsResponse.data.countOfProducts);
         } catch (e){

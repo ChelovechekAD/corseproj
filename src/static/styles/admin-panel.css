@@ -7,3 +7,11 @@
 .admin-page .order{
     width: 50%;
 }
+
+.admin-page .order-items div:first-of-type{
+    grid-template-columns: 50% 50%;
+}
+
+.admin-page .order-items .item{
+    padding: 0.2vw;
+}

@@ -5,7 +5,7 @@ import OrderItemTemplate from './OrderItemTemplate';
  function OrderItemBlock() {
 
     useEffect(()=>{
-        if (adminStore.orderItemsList.length === 0){
+        if (adminStore.orderItemsList.length === 0 && adminStore.selectedOrder !== 0){
             adminStore.getOrderItemsPage();
         }
     })

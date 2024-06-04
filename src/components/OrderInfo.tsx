@@ -10,7 +10,7 @@ interface OrderInfoProps{
 
 function OrderInfo({el}: OrderInfoProps ){
   return (
-    <div className='order-item' onClick={()=>adminStore.selectOrder(el.id)}>
+    <div className={`${adminStore.selectedOrder === el.id && 'active'} order-item`} onClick={()=>adminStore.selectOrder(el.id)}>
         <h2 >Order#{el.id}</h2>
         <p>Creation date: {el.date}</p>
         <p>Order status: <b>{el.orderStatus}</b></p>

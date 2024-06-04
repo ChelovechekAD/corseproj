@@ -14,7 +14,7 @@ async function loadCart(cartStore: OrderCartStore, functionalStore: FunctionalSt
   cartStore.setCartOpen();
   if (cartStore.cartOpen === true && orderCartStore.items.length === 0){
     // functionalStore.setLoading(true);
-    await cartStore.getCart(parseInt(store.user.id));
+    await cartStore.getCart();
     functionalStore.setLoading(false);
   }
 

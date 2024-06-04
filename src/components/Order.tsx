@@ -13,7 +13,7 @@ export class Order extends Component<OrderProps, {}> {
       <div className='item'>
         <img src={"./img/" + this.props.item.imageLink} alt='TEXT'/>
         <h2>{this.props.item.name}</h2>
-        <p>{this.props.item.price*this.props.item.quantity}$</p>
+        <p>{new Intl.NumberFormat().format(this.props.item.price*this.props.item.quantity)}$</p>
         <p>Count: {this.props.item.quantity}</p>
         <FaTrash className='delete-icon' onClick={()=> this.props.onDelete(this.props.item.productId)}/>
       </div>

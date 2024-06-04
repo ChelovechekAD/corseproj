@@ -332,7 +332,10 @@ main .item {
 
 main .item img ,
 .full-item img{
+  min-width: 100%;
+  min-height: 70%;
   width: 100%;
+  background: #222222;
   border-radius: 10px 10px 0 0;
   transition: transform 500ms ease;
   cursor: pointer;

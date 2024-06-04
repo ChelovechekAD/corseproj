@@ -92,9 +92,7 @@ export default class Store {
         try {
             const token: any = localStorage.getItem('access-token');
             if (token == null || localStorage.getItem('user') == null){
-                const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true, headers: {
-                    'Command': 'refresh'
-                }})
+                const response = await axios.post<AuthResponse>(`${API_URL}auth/refresh`, {}, {withCredentials: true})
                 console.log(response);
                 localStorage.setItem('access-token', response.data.accessToken);
                 localStorage.setItem('user', JSON.stringify(response.data.userDTO))
