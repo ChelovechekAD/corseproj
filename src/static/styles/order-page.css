@@ -1,7 +1,8 @@
-.order-page .items .item{
+.order-page .items .item {
     float: left;
 }
-.order-page .items .item img{
+
+.order-page .items .item img {
     width: 5.5vw;
     float: left;
     margin-right: 1vw;
@@ -24,15 +25,16 @@
     flex-direction: column;
 }
 
-.order-page .items .item p:first-of-type{
+.order-page .items .item p:first-of-type {
     font-size: 1vw;
 }
-.order-page .items .item p:last-of-type{
+
+.order-page .items .item p:last-of-type {
     font-size: 0.9vw;
 }
 
 
-.order-page .items .item h2{
+.order-page .items .item h2 {
     margin-right: 3vw;
     overflow: hidden;
     font-size: 1.3vw;
@@ -51,9 +53,9 @@
     transition: transform, color 500ms ease;
 }
 
-.order-page .items .item .delete-icon:hover{
-  transform: scale(1.2);
-  color: #d83030;
+.order-page .items .item .delete-icon:hover {
+    transform: scale(1.2);
+    color: #d83030;
 }
 
 .order-page .form {
@@ -61,7 +63,7 @@
     width: 35%;
 }
 
-.order-page .form-input{
+.order-page .form-input {
     display: flex;
     flex-direction: column;
 }
@@ -69,37 +71,38 @@
 .order-items {
     padding: 1vw;
     width: 50%;
-    
+
 }
 
-.order-items > div:first-of-type{
+.order-items > div:first-of-type {
     display: grid;
     grid-auto-rows: 5vw;
     row-gap: 1vw;
 }
 
 
-.order-items .item img{
+.order-items .item img {
     width: 5vw;
     float: left;
     margin-right: 2vw;
 }
 
-.order-items .item h2{
+.order-items .item h2 {
     font-size: 1.4vw;
     overflow-y: auto;
     max-height: 2vw;
     max-width: 100%;
 }
-.order-items .item p{
+
+.order-items .item p {
     font-size: 1vw;
 }
 
-.pagination-block{
+.pagination-block {
     font-size: 1vw;
 }
 
-.form-input > input{
+.form-input > input {
     border: 0;
     border-bottom: 1px solid black;
     background-color: transparent;
@@ -108,7 +111,7 @@
     font-size: 1.2vw;
 }
 
-.form-input > button{
+.form-input > button {
     padding: 0.5vw;
     border: 1px solid black;
     font-size: 1.3vw;
@@ -119,7 +122,7 @@
 }
 
 .form-input > button:hover {
-    scale: 1.05     ;
+    scale: 1.05;
     background-color: #ca5252;
     color: white;
 }
@@ -127,11 +130,12 @@
 .form-input > button:active {
     background-color: #9c3e3e;
 }
+
 .form-input > p {
     font-size: 1.2vw;
 }
 
-.form > p:last-of-type{
+.form > p:last-of-type {
     padding: 1vw;
     font-size: 1.5vw;
 }
@@ -146,16 +150,16 @@
     transition: all 500ms ease;
 }
 
-.form > button:last-of-type:hover{
-    scale: 1.05     ;
+.form > button:last-of-type:hover {
+    scale: 1.05;
     background-color: #ca5252;
     color: white;
 }
 
-.form > button:last-of-type:active{
+.form > button:last-of-type:active {
     background-color: #9c3e3e;
 }
 
-.order-user-info > p{
+.order-user-info > p {
     height: 1vw;
 }

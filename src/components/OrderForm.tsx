@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
-import { IUser } from '../models/IUser';
+import React, {useContext, useState} from 'react'
+import {IUser} from '../models/IUser';
 import UpdateUserRequest from '../models/request/UpdateUserRequest';
-import { Context } from '../Context';
+import {Context} from '../Context';
 
-interface OrderFormProps{
+interface OrderFormProps {
     userIn: IUser,
-} 
+}
 
 export default function OrderForm({userIn}: OrderFormProps) {
 
@@ -21,14 +21,14 @@ export default function OrderForm({userIn}: OrderFormProps) {
         city: user.city,
     });
 
-    const handleChange = (e : any) => {
-        const { name, value } = e.target;
+    const handleChange = (e: any) => {
+        const {name, value} = e.target;
         setFormData({
-          ...formData,
-          [name]: value,
+            ...formData,
+            [name]: value,
         });
         console.log(formData.street + " " + user.street)
-      };
+    };
 
     const handleSubmit = (e: any) => {
         // const validationErrors = validateForm(formData);
@@ -46,14 +46,14 @@ export default function OrderForm({userIn}: OrderFormProps) {
 
     return (
         <div className='form-input'>
-            {(store.user.city == "" || store.user.building == "" || store.user.street == "")
-            ? <p>Перед оформлением заказа необходимо ввести адрес</p>
-            : <p>Вы можете изменить адрес доставки</p>}
+            {(store.user.city === "" || store.user.building === "" || store.user.street === "")
+                ? <p>Перед оформлением заказа необходимо ввести адрес</p>
+                : <p>Вы можете изменить адрес доставки</p>}
             <input onChange={handleChange}
-                name='building'
-                value={formData.building}
-                type="text"
-                placeholder='Building'
+                   name='building'
+                   value={formData.building}
+                   type="text"
+                   placeholder='Building'
             />
             {/* {errors.email && <span>{errors.email}</span>} */}
             <input
@@ -74,6 +74,6 @@ export default function OrderForm({userIn}: OrderFormProps) {
             <button onClick={handleSubmit}>
                 Подтвердить
             </button>
-        </div>              
+        </div>
     )
 }

@@ -1,4 +1,4 @@
-export default interface OrderPreview{
+export default interface OrderPreview {
     id: number,
     date: string,
     orderStatus: string,

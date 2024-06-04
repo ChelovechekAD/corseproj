@@ -49,7 +49,7 @@
     padding-left: 4vw;
 }
 
-.auth-form .types .active{
+.auth-form .types .active {
     /* background-color: rgba(0, 0, 0, 0.3); */
     text-decoration: underline;
     font-weight: 500;
@@ -59,12 +59,12 @@
     border-bottom: none; */
 }
 
-.auth-form .types .false{
+.auth-form .types .false {
     cursor: pointer;
     transition: transform 500ms ease;
 }
 
-.auth-form .types .false:hover{
+.auth-form .types .false:hover {
     transform: scale(1.05);
 }
 
@@ -80,7 +80,7 @@
 }
 
 .auth-form .login-form input,
-.auth-form .reg-form input{
+.auth-form .reg-form input {
     background-color: transparent;
     margin: 1vw 0;
     font-family: "Montserrat", sans-serif;
@@ -91,19 +91,21 @@
     font-size: 1.3vw;
     line-height: 2vw;
 }
-.auth-form .login-form input{
+
+.auth-form .login-form input {
     border: 1px solid rgba(255, 255, 255, 0.603);
     padding: 0.6vw;
     padding-left: 2vw;
     border-radius: 2vw;
 }
-.auth-form .login-form input:focus{
+
+.auth-form .login-form input:focus {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 .auth-form .login-form input::placeholder {
     color: rgb(161, 161, 161); /* Change the color to red */
-  }
+}
 
 .auth-form button {
     margin: 1.5vw auto;
@@ -119,7 +121,7 @@
     transition: transform 500ms ease;
 }
 
-.auth-form button:hover{
+.auth-form button:hover {
     background-color: rgba(178, 34, 34, 0.7);
     transform: scale(1.05);
 }

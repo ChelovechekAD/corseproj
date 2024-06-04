@@ -1,23 +1,24 @@
-import React, { useEffect } from 'react'
-import { adminStore } from '../Context';
-import { observer } from 'mobx-react-lite';
+import React, {useEffect} from 'react'
+import {adminStore} from '../Context';
+import {observer} from 'mobx-react-lite';
 import OrderItemTemplate from './OrderItemTemplate';
- function OrderItemBlock() {
 
-    useEffect(()=>{
-        if (adminStore.orderItemsList.length === 0 && adminStore.selectedOrder !== 0){
+function OrderItemBlock() {
+
+    useEffect(() => {
+        if (adminStore.orderItemsList.length === 0 && adminStore.selectedOrder !== 0) {
             adminStore.getOrderItemsPage();
         }
     })
 
     return (
-        
+
         <div>
-                {adminStore.selectedOrder !== 0 && adminStore.orderItemsList.map((e)=>(
+            {adminStore.selectedOrder !== 0 && adminStore.orderItemsList.map((e) => (
                 <OrderItemTemplate el={e} key={e.productId}/>
-                ))}
+            ))}
         </div>
-        
+
     )
 }
 

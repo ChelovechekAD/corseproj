@@ -1,4 +1,4 @@
-import { AxiosResponse } from "axios";
+import {AxiosResponse} from "axios";
 import $api from "../http";
 import AddCartItemRequest from "../models/request/AddCartItemRequest";
 import CartItemsResponse from "../models/response/CartItemsResponse";
@@ -16,6 +16,6 @@ export default class CartService {
 
     static async getAllCart(): Promise<AxiosResponse<CartItemsResponse>> {
         return await $api.get('/cart/')
-    } 
+    }
 
 }

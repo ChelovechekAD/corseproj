@@ -1,14 +1,14 @@
 import {AxiosResponse} from 'axios';
 import $api from '../http';
-import { IUser } from '../models/IUser';
+import {IUser} from '../models/IUser';
 import UpdateUserRequest from '../models/request/UpdateUserRequest';
 
 export default class UserService {
-    static fetchUsers(): Promise<AxiosResponse<IUser[]>>{
+    static fetchUsers(): Promise<AxiosResponse<IUser[]>> {
         return $api.get<IUser[]>('/admin/get/users');
     }
 
     static async updateUser(user: UpdateUserRequest): Promise<void> {
         await $api.put('/user/update', user);
-    } 
+    }
 }

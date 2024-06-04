@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import { BiLeftArrow } from "react-icons/bi";
-import { BiRightArrow } from "react-icons/bi";
+import React, {useState} from 'react'
+import {BiLeftArrow, BiRightArrow} from "react-icons/bi";
 
 interface CounterProps {
     onValueChange: (value: number) => void;
@@ -9,18 +8,18 @@ interface CounterProps {
 export default function Counter({onValueChange}: CounterProps) {
 
     const [value, setValue] = useState(1);
-    
+
     const increase = () => {
-        if (value < 99){
-            setValue(value+1);
-            onValueChange(value+1);
-        } 
+        if (value < 99) {
+            setValue(value + 1);
+            onValueChange(value + 1);
+        }
     }
 
     const decrease = () => {
-        if (value > 1){ 
-            setValue(value-1);
-            onValueChange(value-1);
+        if (value > 1) {
+            setValue(value - 1);
+            onValueChange(value - 1);
         }
     }
 

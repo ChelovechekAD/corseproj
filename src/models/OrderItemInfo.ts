@@ -1,4 +1,4 @@
-export default interface OrderItemInfo{
+export default interface OrderItemInfo {
     productId: number,
     count: number,
     price: number,

@@ -1,10 +1,4 @@
-import { makeAutoObservable } from "mobx";
-import OrderPreview from "../models/OrderPreview";
-import OrderService from "../services/OrderService";
-import { COUNT_OF_ORDERS_PER_PAGE, COUNT_OF_ORDER_ITEMS_PER_PAGE } from "../utils/Constants";
-import OrderItemInfo from "../models/OrderItemInfo";
-import {Product} from "../models/Product";
-import {Review} from "../models/Review";
+import {makeAutoObservable} from "mobx";
 
 export default class ProductPageStore {
 

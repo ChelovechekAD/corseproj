@@ -1,8 +1,8 @@
-import { makeAutoObservable } from "mobx";
-import { Category } from "../models/Category";
-import { Product } from "../models/Product";
+import {makeAutoObservable} from "mobx";
+import {Category} from "../models/Category";
+import {Product} from "../models/Product";
 import CatalogService from "../services/CatalogService";
-import { COUNT_OF_PRODUCTS_PER_PAGE } from "../utils/Constants";
+import {COUNT_OF_PRODUCTS_PER_PAGE} from "../utils/Constants";
 
 export default class CatalogStore {
     products: Product[] = [];
@@ -12,53 +12,56 @@ export default class CatalogStore {
     curPage = 1;
     countPages = 0;
 
-    setCountPages(){
+    constructor() {
+        makeAutoObservable(this, {}, {autoBind: true})
+    }
+
+    setCountPages() {
         this.countPages = Math.ceil(this.totalCountProducts / COUNT_OF_PRODUCTS_PER_PAGE)
     }
-    setCurPage(page: number){
+
+    setCurPage(page: number) {
         this.curPage = page;
         this.getAllProductsPage(page);
     }
-    setCategory(categoryList: Category[]){
+
+    setCategory(categoryList: Category[]) {
         this.categories = categoryList;
     }
 
-    setItems(productList: Product[]){
+    setItems(productList: Product[]) {
         this.products = productList;
     }
-    selectCategory(categoryId: number){
-        if (this.selectedCategory !== categoryId){
+
+    selectCategory(categoryId: number) {
+        if (this.selectedCategory !== categoryId) {
             this.selectedCategory = categoryId;
             this.setCurPage(1);
         }
     }
 
-    setTotalCount(count: number){
+    setTotalCount(count: number) {
         this.totalCountProducts = count;
         this.setCountPages();
     }
 
-    async getAllCategories(){
+    async getAllCategories() {
         try {
             const categoriesResponse = await CatalogService.getAllCategories();
             this.setCategory(categoriesResponse.data.categoryDTOList);
-        } catch (e){
+        } catch (e) {
             console.log(e);
         }
     }
 
-    async getAllProductsPage(pageNum: number){
+    async getAllProductsPage(pageNum: number) {
         try {
             let productsResponse = await CatalogService.getAllProductsPage(pageNum, this.selectedCategory);
             this.setItems(productsResponse.data.productDTOList);
             this.setTotalCount(productsResponse.data.countOfProducts);
-        } catch (e){
+        } catch (e) {
             console.log(e);
         }
-    }
-
-    constructor() {
-        makeAutoObservable(this, {}, {autoBind: true})
     }
 
 

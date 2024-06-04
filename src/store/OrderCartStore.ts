@@ -1,9 +1,9 @@
-import { makeAutoObservable } from "mobx";
-import { Product } from "../models/Product";
+import {makeAutoObservable} from "mobx";
+import {Product} from "../models/Product";
 import CartService from "../services/CartService";
 import AddCartItemRequest from "../models/request/AddCartItemRequest";
-import { store } from "../Context";
-import { CartItem } from "../models/CartItem";
+import {store} from "../Context";
+import {CartItem} from "../models/CartItem";
 import DeleteCartItemRequest from "../models/request/DeleteCartItemRequest";
 import OrderTemplate from "../models/OrderTemplate";
 import OrderService from "../services/OrderService";
@@ -15,7 +15,11 @@ export default class OrderCartStore {
     userAddressPresent = false;
     cartOpen: boolean = false;
 
-    setCartOpen(){
+    constructor() {
+        makeAutoObservable(this, {}, {autoBind: true})
+    }
+
+    setCartOpen() {
         this.cartOpen = !this.cartOpen;
     }
 
@@ -24,8 +28,8 @@ export default class OrderCartStore {
         this.setSumPrice();
     }
 
-    getUserAddressPresent(){
-        if (store.user.city != "" && store.user.building != "" && store.user.street != "") {
+    getUserAddressPresent() {
+        if (store.user.city !== "" && store.user.building !== "" && store.user.street !== "") {
             this.setUserAddressPresent(true);
             return true;
         } else {
@@ -35,33 +39,33 @@ export default class OrderCartStore {
         }
     }
 
-    setUserAddressPresent(bool:boolean){
+    setUserAddressPresent(bool: boolean) {
         this.userAddressPresent = bool;
     }
 
-    setSumPrice(){
+    setSumPrice() {
         let summa = 0;
-        this.items.forEach((el: CartItem ) => summa += el.price*el.quantity);
+        this.items.forEach((el: CartItem) => summa += el.price * el.quantity);
         this.sumPrice = summa;
     }
 
     addItem(item: CartItem) {
-    
+
         this.setItems([
             ...this.items,
             item
         ])
-        
+
     }
-    
+
     async saveItem(item: Product, count: number) {
         let isInArray = false;
-        this.items.forEach(el =>{
-            if (el.productId === item.id){
+        this.items.forEach(el => {
+            if (el.productId === item.id) {
                 isInArray = true;
             }
         })
-        if (isInArray){
+        if (isInArray) {
             return;
         }
         const req: AddCartItemRequest = {
@@ -70,7 +74,7 @@ export default class OrderCartStore {
             quantity: count,
         }
 
-        try{
+        try {
             await CartService.addCartItem(req);
             const cartItem: CartItem = {
                 productId: item.id,
@@ -81,39 +85,39 @@ export default class OrderCartStore {
                 imageLink: item.imageLink,
             }
             this.addItem(cartItem);
-        } catch (e){
+        } catch (e) {
             console.log(e)
         }
     }
 
-    async deleteItem(id: number){
+    async deleteItem(id: number) {
         const req: DeleteCartItemRequest = {
             userId: parseInt(store.user.id),
             productId: id,
         }
-        try{
+        try {
             await CartService.deleteCartItem(req);
             this.setItems(this.items.filter(el => el.productId !== id))
-        } catch (e){
+        } catch (e) {
             console.log(e)
         }
-        
-    }   
 
-    async getCart(){
-        try{
+    }
+
+    async getCart() {
+        try {
             const items = await CartService.getAllCart();
-            if (items.data.cartItemDTOList.length !== 0){
+            if (items.data.cartItemDTOList.length !== 0) {
                 this.setItems(items.data.cartItemDTOList);
             }
-        }catch(e){
+        } catch (e) {
             console.log(e)
         }
     }
 
-    async createOrder(items: CartItem[]){
+    async createOrder(items: CartItem[]) {
 
-        const list: OrderItem[] = items.map(el=>{
+        const list: OrderItem[] = items.map(el => {
             let out: OrderItem = {
                 productId: el.productId,
                 quantity: el.quantity,
@@ -125,16 +129,12 @@ export default class OrderCartStore {
             userId: parseInt(store.user.id),
             orderItems: list,
         }
-        try{
+        try {
             await OrderService.createOrder(order);
             this.setItems([]);
-        }catch(e){
+        } catch (e) {
             console.log(e);
         }
-    }
-
-    constructor() {
-        makeAutoObservable(this, {}, {autoBind: true})
     }
 
 

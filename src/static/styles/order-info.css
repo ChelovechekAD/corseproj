@@ -1,4 +1,4 @@
-.list-block{
+.list-block {
     border: 1px solid #c9c9c9;
     padding: 0.5vw;
     display: grid;
@@ -8,8 +8,8 @@
     grid-template-columns: repeat(2, 1fr);
 }
 
-.list-block .order-item h2{
-    font-size: 1vw;    
+.list-block .order-item h2 {
+    font-size: 1vw;
 }
 
 

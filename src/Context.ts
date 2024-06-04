@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import {createContext} from "react";
 import Store from "./store/Store";
 import CatalogStore from "./store/CatalogStore";
 import FunctionalStore from "./store/FunctionalStore";
@@ -18,7 +18,7 @@ export const catalogStore = new CatalogStore();
 export const store = new Store();
 export const orderCartStore = new OrderCartStore();
 export const functionalStore = new FunctionalStore();
-  
+
 export const Context = createContext<State>({
     store,
     catalogStore,

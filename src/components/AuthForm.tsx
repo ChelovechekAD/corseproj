@@ -1,10 +1,9 @@
-import { observer } from 'mobx-react';
-import React, { useContext } from 'react';
-import { Context } from '..';
+import {observer} from 'mobx-react';
+import React, {useContext} from 'react';
+import {Context} from '..';
 import LoginForm from './LoginForm';
 import RegistrationForm from './RegistrationForm';
 import '../static/styles/auth.css';
-
 
 
 function AuthForm() {
@@ -17,17 +16,17 @@ function AuthForm() {
             </div>
             <div>
                 <div className='types'>
-                    <div className={`${store.itLogin && 'active' }`} onClick={() => store.setItLogin(true)}>
+                    <div className={`${store.itLogin && 'active'}`} onClick={() => store.setItLogin(true)}>
                         <p>Авторизация</p>
                     </div>
-                    <div className={`${!store.itLogin && 'active' }`} onClick={() => store.setItLogin(false)}>
+                    <div className={`${!store.itLogin && 'active'}`} onClick={() => store.setItLogin(false)}>
                         <p>Регистрация</p>
                     </div>
                 </div>
                 {store.itLogin ? <LoginForm/> : <RegistrationForm/>}
-                
+
             </div>
-           
+
         </div>
     )
 }

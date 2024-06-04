@@ -1,5 +1,4 @@
-import { CartItem } from "../CartItem";
-import { Product } from "../Product";
+import {CartItem} from "../CartItem";
 
 export default interface CartItemsResponse {
     cartItemDTOList: CartItem[]

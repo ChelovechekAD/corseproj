@@ -14,44 +14,44 @@ const LoginForm: FC = () => {
 
     const emailRegex = /^\S+@\S+\.\S+$/;
 
-    const handleChange = (e : any) => {
-        const { name, value } = e.target;
+    const handleChange = (e: any) => {
+        const {name, value} = e.target;
         setFormData({
-          ...formData,
-          [name]: value,
+            ...formData,
+            [name]: value,
         });
-      };
+    };
 
-      
+
     const handleSubmit = (e: any) => {
         const validationErrors = validateForm(formData);
         if (Object.keys(validationErrors).length === 0) {
-          // Form is valid, proceed with submission
-          console.log('Form submitted:', formData);
-          setErrors({});
-          store.login(formData);
+            // Form is valid, proceed with submission
+            console.log('Form submitted:', formData);
+            setErrors({});
+            store.login(formData);
         } else {
-          // Update errors state to display validation errors
-          setErrors(validationErrors);
+            // Update errors state to display validation errors
+            setErrors(validationErrors);
         }
-    };   
+    };
 
     const validateForm = (data: typeof formData) => {
         let errors: LoginFormData = {};
         if (!data.email) {
-          errors.email = '*Email is required';
+            errors.email = '*Email is required';
         } else if (!emailRegex.test(data.email)) {
-          errors.email = '*Email is invalid';
+            errors.email = '*Email is invalid';
         }
         if (!data.password) {
-          errors.password = '*Password is required';
+            errors.password = '*Password is required';
         }
         return errors;
-      };
+    };
 
     return (
         <div className='login-form'>
-             <input
+            <input
                 onChange={handleChange}
                 name='email'
                 value={formData.email}

@@ -1,17 +1,19 @@
-import React, { useContext } from 'react'
+import React, {useContext} from 'react'
 import {Pagination} from '@mui/material';
-import { Context } from '../Context';
-import { observer } from 'mobx-react-lite';
+import {Context} from '../Context';
+import {observer} from 'mobx-react-lite';
 
 
 function PaginationBlock() {
-    const {catalogStore}  = useContext(Context)
+    const {catalogStore} = useContext(Context)
     return (
-        <Pagination 
+        <Pagination
             className='pagination-block'
             count={catalogStore.countPages}
             page={catalogStore.curPage}
-            onChange={(_, num) => {catalogStore.setCurPage(num)}} 
+            onChange={(_, num) => {
+                catalogStore.setCurPage(num)
+            }}
         />
     )
 }

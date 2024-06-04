@@ -1,6 +1,6 @@
 import $api from "../http";
 import {AxiosResponse} from 'axios';
-import { AuthResponse } from "../models/response/AuthResponse";
+import {AuthResponse} from "../models/response/AuthResponse";
 import RegistrationFormData from "../models/request/RegistrationFormData";
 import LoginFormData from "../models/request/LoginFormData";
 

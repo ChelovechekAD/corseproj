@@ -1,4 +1,4 @@
-export default interface UpdateUserRequest{
+export default interface UpdateUserRequest {
     id: number,
     name: string,
     surname: string,

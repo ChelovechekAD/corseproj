@@ -1,11 +1,11 @@
-import { makeAutoObservable } from "mobx";
+import {makeAutoObservable} from "mobx";
 import OrderPreview from "../models/OrderPreview";
 import OrderService from "../services/OrderService";
-import { COUNT_OF_ORDERS_PER_PAGE, COUNT_OF_ORDER_ITEMS_PER_PAGE } from "../utils/Constants";
+import {COUNT_OF_ORDER_ITEMS_PER_PAGE, COUNT_OF_ORDERS_PER_PAGE} from "../utils/Constants";
 import OrderItemInfo from "../models/OrderItemInfo";
 
 export default class AdminStore {
-    
+
     orders: OrderPreview[] = [];
     curPage: number = 1;
     countOfOrders: number = 0;
@@ -17,68 +17,71 @@ export default class AdminStore {
     countOfOrderItems: number = 0;
     countOrderItemsPages: number = 0;
 
-    selectOrder(orderId: number){
+    constructor() {
+        makeAutoObservable(this, {}, {autoBind: true})
+    }
+
+    selectOrder(orderId: number) {
         this.selectedOrder = orderId;
         this.getOrderItemsPage();
     }
 
-    setOrder(orderList: OrderPreview[]){
+    setOrder(orderList: OrderPreview[]) {
         this.orders = orderList;
     }
-    setItems(orderItemsList: OrderItemInfo[]){
+
+    setItems(orderItemsList: OrderItemInfo[]) {
         this.orderItemsList = orderItemsList
     }
 
-    setCurPage(page:number){
+    setCurPage(page: number) {
         this.curPage = page;
         this.getOrderPage()
     }
-    setCurOrderItemsPage(page:number){
+
+    setCurOrderItemsPage(page: number) {
         this.curOrderItemsPage = page;
         this.getOrderItemsPage()
     }
 
-    setCountOfOrder(i: number){
+    setCountOfOrder(i: number) {
         this.countOfOrders = i;
     }
-    setCountOfOrderItems(i: number){
+
+    setCountOfOrderItems(i: number) {
         this.countOfOrderItems = i;
     }
 
-    setCountOfPages(){
+    setCountOfPages() {
         this.countPages = Math.ceil(this.countOfOrders / COUNT_OF_ORDERS_PER_PAGE);
     }
-    setCountOfOrderItemsPage(){
+
+    setCountOfOrderItemsPage() {
         this.countOfOrderItems = Math.ceil(this.countOfOrderItems / COUNT_OF_ORDER_ITEMS_PER_PAGE);
     }
 
-    async getOrderPage(){
+    async getOrderPage() {
         try {
             const resp = await OrderService.getListOfOrders(this.curPage);
             this.setOrder(resp.data.orderList);
             this.setCountOfOrder(resp.data.count);
             this.setCountOfPages();
             console.log(this.orders)
-        } catch(e){
+        } catch (e) {
             console.log(e)
         }
     }
 
-    
-    async getOrderItemsPage(){
+    async getOrderItemsPage() {
         try {
             const resp = await OrderService.getOrderItems(this.selectedOrder, this.curOrderItemsPage);
             this.setItems(resp.data.orderItemProductDTOList);
             this.setCountOfOrderItems(resp.data.totalCountOfItems);
             this.setCountOfOrderItemsPage();
             console.log(this.orders)
-        } catch(e){
+        } catch (e) {
             console.log(e)
         }
-    }
-
-    constructor() {
-        makeAutoObservable(this, {}, {autoBind: true})
     }
 
 

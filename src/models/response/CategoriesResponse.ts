@@ -1,5 +1,5 @@
-import { Category } from "../Category";
+import {Category} from "../Category";
 
-export interface CategoriesResponse{
+export interface CategoriesResponse {
     categoryDTOList: Category[]
 }
