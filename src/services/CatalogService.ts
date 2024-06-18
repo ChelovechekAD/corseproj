@@ -24,4 +24,10 @@ export default class CatalogService {
         });
     }
 
+    static async addNewCategory(name: string): Promise<void> {
+        await $api.post(`/admin/add/category`, {
+            categoryName: name
+        })
+    }
+
 }

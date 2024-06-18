@@ -3,6 +3,8 @@ import OrderPreview from "../models/OrderPreview";
 import OrderService from "../services/OrderService";
 import {COUNT_OF_ORDER_ITEMS_PER_PAGE, COUNT_OF_ORDERS_PER_PAGE} from "../utils/Constants";
 import OrderItemInfo from "../models/OrderItemInfo";
+import CatalogService from "../services/CatalogService";
+import {catalogStore} from "../Context";
 
 export default class AdminStore {
 
@@ -84,5 +86,15 @@ export default class AdminStore {
         }
     }
 
+    async addNewCategory(name: string, callback: any)  {
+        try {
+            await CatalogService.addNewCategory(name);
+            callback();
+            catalogStore.getAllCategories()
+                .then(() => console.log("Category successfully added."))
+        } catch (e) {
+            console.log("During category creation process something went wrong! Error: %s", e)
+        }
+    }
 
 }

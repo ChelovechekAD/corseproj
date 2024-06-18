@@ -3,9 +3,10 @@ import {Context} from '..';
 import {VscAccount} from "react-icons/vsc";
 import {MdLogout} from "react-icons/md";
 import {Link} from 'react-router-dom';
+import {observer} from "mobx-react-lite";
 
 
-export const UserInfo: FC = () => {
+const UserInfo: FC = () => {
     const {store} = useContext(Context);
 
     return (
@@ -18,3 +19,5 @@ export const UserInfo: FC = () => {
         </div>
     )
 }
+
+export default observer(UserInfo);

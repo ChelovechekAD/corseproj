@@ -2,7 +2,16 @@ import React from 'react';
 import {createRoot} from 'react-dom/client';
 import './index.css';
 import App from './App';
-import {adminStore, catalogStore, Context, functionalStore, orderCartStore, store} from './Context';
+import {
+    adminStore,
+    catalogStore,
+    Context,
+    functionalStore,
+    orderCartStore,
+    productPageStore,
+    store,
+    userStore
+} from './Context';
 
 
 const container = document.getElementById('root');
@@ -15,6 +24,8 @@ root.render(
         functionalStore,
         orderCartStore,
         adminStore,
+        productPageStore,
+        userStore
     }}>
 
         <App/>

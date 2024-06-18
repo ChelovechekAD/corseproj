@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import OrderPreview from '../models/OrderPreview'
 import "../static/styles/order-info.css"
 import {adminStore} from '../Context'
@@ -9,6 +9,8 @@ interface OrderInfoProps {
 }
 
 function OrderInfo({el}: OrderInfoProps) {
+
+
     return (
         <div className={`${adminStore.selectedOrder === el.id && 'active'} order-item`}
              onClick={() => adminStore.selectOrder(el.id)}>

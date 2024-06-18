@@ -39,7 +39,6 @@ function ShopCart() {
                 store.setPath("/order");
                 orderCartStore.setCartOpen()
             }}>Оформить</Link>)}
-
         </div>
     )
 }

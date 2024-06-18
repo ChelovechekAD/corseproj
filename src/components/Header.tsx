@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import {FaCartShopping} from "react-icons/fa6";
-import {UserInfo} from './UserInfo';
+import UserInfo from './UserInfo';
 import ShopCart from './ShopCart';
 import {Link} from 'react-router-dom';
 import Loading from './Loading';
@@ -12,7 +12,7 @@ import FunctionalStore from '../store/FunctionalStore';
 
 async function loadCart(cartStore: OrderCartStore, functionalStore: FunctionalStore) {
     cartStore.setCartOpen();
-    if (cartStore.cartOpen === true && orderCartStore.items.length === 0) {
+    if (cartStore.cartOpen && orderCartStore.items.length === 0) {
         // functionalStore.setLoading(true);
         await cartStore.getCart();
         functionalStore.setLoading(false);

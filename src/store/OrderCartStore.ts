@@ -70,7 +70,7 @@ export default class OrderCartStore {
         }
         const req: AddCartItemRequest = {
             productId: item.id,
-            userId: parseInt(store.user.id),
+            userId:store.user.id,
             quantity: count,
         }
 
@@ -92,7 +92,7 @@ export default class OrderCartStore {
 
     async deleteItem(id: number) {
         const req: DeleteCartItemRequest = {
-            userId: parseInt(store.user.id),
+            userId: store.user.id,
             productId: id,
         }
         try {
@@ -126,7 +126,7 @@ export default class OrderCartStore {
             return out;
         })
         const order: OrderTemplate = {
-            userId: parseInt(store.user.id),
+            userId: store.user.id,
             orderItems: list,
         }
         try {

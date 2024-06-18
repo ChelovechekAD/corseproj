@@ -113,11 +113,16 @@ export default class Store {
         console.log(this.user.roles);
     }
 
-    async updateUser(user: UpdateUserRequest) {
+    async updateUser(user: UpdateUserRequest, callback: any) {
         functionalStore.setLoading(true);
         try {
             await UserService.updateUser(user);
-            orderCartStore.setUserAddressPresent(true);
+            if (user.building != "" && user.street != "" && user.city != "") {
+                orderCartStore.setUserAddressPresent(true);
+            }
+            if (callback) {
+                callback(false);
+            }
             const newUser: IUser = {
                 id: this.user.id,
                 email: this.user.email,
@@ -139,6 +144,12 @@ export default class Store {
     }
 
     checkException(e: any) {
+        if (e.response?.status === 404) {
+            console.error(e.response?.data);
+            this.errorOccurred = true;
+            this.errorMessage = e.response?.data.exceptionMessage;
+            return
+        }
         this.errorOccurred = true;
         this.errorMessage = e.response?.data;
     }

@@ -48,6 +48,8 @@ body {
 }
 
 header {
+    background: #fff;
+    z-index: 1000;
     position: relative;
     padding-top: 3.5vw;
 }
@@ -274,6 +276,92 @@ header .presentation::before {
     cursor: pointer;
     border: 1px solid transparent;
     transition: all 500ms ease;
+}
+
+.categories div:last-of-type svg {
+    color: #4e4e4e;
+}
+
+.create-category-page {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100000;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.create-category-block {
+    width: 30%;
+    background-color: white;
+    border: #4e4e4e 1px solid;
+    border-radius: 2vw;
+    margin: 20vw auto auto;
+}
+
+.create-category-block .title-category {
+    width: 87%;
+    display: flex;
+    font-size: 1.3vw;
+    position: relative;
+    padding: 2vw 2vw 1vw 2vw;
+    border-bottom: #4e4e4e 1px solid;
+}
+
+.create-category-block .title-category .close{
+    position: absolute;
+    right: 1.5vw;
+    top: 1.7vw;
+    width: 2vw;
+    height: 2vw;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.create-category-block .title-category .close:hover{
+    scale: 1.2;
+    color: #b22626;
+}
+.create-category-block .title-category .close:active{
+    scale: 1.1;
+    color: #831c1c;
+}
+
+.create-category-block .body-category {
+    position: relative;
+    padding: 1vw 2vw 2vw 2vw;
+    font-size: 1.2vw;
+}
+
+.create-category-block .body-category p {
+    margin-bottom: 0.6vw;
+}
+
+.create-category-block .body-category .check {
+    width: 1.5vw;
+    height: 1.5vw;
+    position: absolute;
+    right: 1.5vw;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+}
+.create-category-block .body-category .check:hover {
+    scale: 1.2;
+    color: #5fa36a;
+}
+
+.create-category-block .body-category .check:active {
+    scale: 1.1;
+    color: #396240;
+}
+
+.create-category-block .body-category input {
+    border: none;
+    border-bottom: 1px solid #4e4e4e;
+    width: 70%;
 }
 
 .categories div:hover {

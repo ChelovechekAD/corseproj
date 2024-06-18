@@ -9,6 +9,8 @@ import Layout from './Layout';
 import NotFound from './pages/NotFound';
 import OrderPage from './pages/OrderPage';
 import AdminPanel from './pages/AdminPanel';
+import ProductPage from "./pages/ProductPage";
+import UserPage from "./pages/UserPages/UserPage";
 
 const App: FC = () => {
     const {store} = useContext(Context);
@@ -32,17 +34,21 @@ const App: FC = () => {
     }
 
     return (
+
         <div className='wrapper'>
             <BrowserRouter>
                 {/* <Page/> */}
                 <Routes>
                     <Route path='/' element={<Layout/>}>
+                        <Route path='/product/:id' element={<ProductPage/>}/>
+                        <Route path='/account' element={<UserPage />}/>
                         <Route path='/order' element={<OrderPage/>}/>
                         <Route path='/admin' element={<AdminPanel/>}/>
                         <Route path='/' element={<Page/>}/>
                         <Route path='/contacts' element={<NotFound/>}/>
                         <Route path='/about' element={<NotFound/>}/>
                         <Route path='/*' element={<NotFound/>}/>
+                        <Route path='/not-found' element={<NotFound />}/>
                     </Route>
                 </Routes>
             </BrowserRouter>

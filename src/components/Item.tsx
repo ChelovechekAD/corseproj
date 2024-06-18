@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import {Product} from '../models/Product';
 import {AiFillStar} from "react-icons/ai";
 import Counter from '../fragments/Counter';
+import {Link, Route} from "react-router-dom";
+import ProductPage from "../pages/ProductPage";
+import {store} from "../Context";
 
 interface ItemProps {
     item: Product;
@@ -26,11 +29,13 @@ export class Item extends Component<ItemProps, ItemState> {
     render() {
         return (
             <div className='item'>
-                <img src={"./img/" + this.props.item.imageLink} alt='TEXT'/>
+                <Link to={`/product/${this.props.item.id}`} onClick={() => store.setPath(`/product/${this.props.item.id}`)}>
+                    <img src={"./img/" + this.props.item.imageLink} alt='TEXT'/>
+                </Link>
                 <h2>{this.props.item.name}</h2>
                 <p>{this.props.item.description}</p>
                 <p className='rating'>{this.props.item.rating}<AiFillStar className='rating-icon'/></p>
-                <b>{this.props.item.price}$</b>
+                <b>{Intl.NumberFormat().format(this.props.item.price)}$</b>
                 <Counter onValueChange={(e: number) => {
                     this.setState(() => ({count: e}))
                 }}/>

@@ -1,0 +1,211 @@
+.reviews-block {
+    margin: 1vw 0;
+    width: 100%;
+    padding-bottom: 1vw;
+    top: -200vw;
+    position: relative;
+    left: 0;
+    z-index: 0;
+    transition: display 1s;
+}
+
+.show {
+    display: block;
+    animation: open 0.5s;
+    top: 0;
+}
+
+.hidden {
+    top: -200vw;
+    animation: close 1s;
+    display: none;
+}
+
+@keyframes open {
+    from {
+        opacity: 0;
+        top: -200vw;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+@keyframes close {
+    from {
+        opacity: 1;
+        top: 0;
+    }
+    to {
+        opacity: 0;
+        top: -200vw;
+    }
+}
+
+.title-b {
+    background: #fff;
+    padding: 1vw 0 1vw 2vw;
+    font-weight: bold;
+    color: #4e4e4e;
+    font-size: 1.5vw;
+    margin: 1vw auto;
+    position: relative;
+    z-index: 10;
+    box-shadow: #4e4e4e 1px 1px 1vw;
+}
+
+.title-b-arrow {
+    position: absolute;
+    right: 1vw;
+    top: 0;
+    height: 100%;
+    width: 2vw;
+    user-select: none;
+}
+.rotate {
+    rotate: 180deg;
+}
+
+.user-review, .review {
+    margin: 1vw 1vw 0;
+    padding: 0 1vw 1vw;
+    border: 1px solid rgba(224, 224, 224, 0.71);
+    box-shadow: #4e4e4e 1px 1px 1vw;
+    width: 94.2%;
+}
+
+.user-review .title, .review .title {
+    position: relative;
+    font-size: 1.3vw;
+    padding: 1vw 0;
+    display: flex;
+    font-weight: bold;
+    user-select: none;
+
+}
+
+.user-review .title p:first-child, .review .title p:first-child {
+    text-decoration: underline;
+    color: #4e4e4e;
+    margin-right: 1vw;
+    margin-left: 2vw;
+}
+
+.review .title p:first-child {
+    text-decoration: none;
+}
+
+.user-review .title .rating, .review .title .rating {
+    color: goldenrod;
+    display: flex;
+    align-items: center;
+}
+
+.user-review .title .rating .rating-icon, .review .title .rating .rating-icon {
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+.product-page .pagination-block {
+    width: 97%;
+    padding: 0.3vw 0;
+    margin: 1vw auto auto;
+    box-shadow: #4e4e4e 1px 1px 1vw;
+}
+
+.user-review .review-content, .review .review-content{
+    overflow: scroll;
+    max-height: 7vw;
+    font-size: 1.1vw;
+    padding-right: 1vw;
+    text-indent: 2vw;
+}
+
+.user-review .title .delete-icon {
+    width: 1.2vw;
+    height: 1.2vw;
+    color: #c93d3d;
+    position: absolute;
+    right: 1vw;
+    top: 1.3vw;
+    transition: all 500ms ease;
+}
+
+.user-review .title .delete-icon:hover {
+    color: #a93333;
+    scale: 1.3;
+    cursor: pointer;
+}
+
+.user-review .title .delete-icon:active {
+    color: #812727;
+    scale: 1.1;
+    cursor: pointer;
+}
+
+.reviews .no-reviews {
+    font-size: 1.2vw;
+    width: 95%;
+    margin: 1vw auto 0;
+    padding: 1vw;
+    box-shadow: #4e4e4e 1px 1px 1vw;
+}
+
+.create-review {
+    width: 95%;
+    margin: auto;
+    box-shadow: #4e4e4e 1px 1px 1vw;
+    padding: 1vw;
+    color: #4e4e4e;
+    height: 11.5vw;
+    }
+
+.create-review p:first-child {
+    font-size: 1.2vw;
+    color: #4e4e4e;
+    margin-bottom: 1vw;
+}
+
+.create-review textarea {
+    width: 100%;
+    resize: none;
+    height: 7vw;
+}
+
+.create-review .rating {
+    width: 15vw;
+    float: left;
+    display: flex;
+    font-size: 1.3vw;
+    line-height: 1.3vw;
+}
+
+.create-review .rating input {
+    width: 5vw;
+    margin-left: 1vw;
+    border: none;
+    border-bottom: #4e4e4e 1px solid;
+}
+
+.create-review button {
+    padding: 0.2vw 1vw;
+    float: right;
+    background: brown;
+    color: #fff;
+    border: none;
+    border-radius: 2vw;
+    font-weight: bold;
+    font-size: 1.2vw;
+    transition: all 1s ease;
+}
+
+.create-review button:hover {
+    scale: 1.1;
+    background: #802222;
+}
+
+.create-review button:active {
+    scale: 1.05;
+    background: #591717;
+}

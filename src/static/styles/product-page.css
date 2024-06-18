@@ -1,0 +1,136 @@
+
+.product-page {
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    padding: 2vw 1vw;
+    position: relative;
+}
+
+.product-page .product {
+    background: #fff;
+    position: relative;
+    z-index: 10;
+    padding: 1vw 1vw;
+    width: 97%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 30% auto;
+    grid-column-gap: 1vw;
+    grid-template-rows: 22vw;
+    overflow-x: hidden;
+    box-shadow: #4e4e4e 1px 1px 1vw;
+}
+.product-page .product-image {
+    position: relative;
+}
+
+.product-page .product-image img {
+    width: 100%;
+}
+
+.product-page .product-image .rating {
+    right: 1vw;
+    bottom: 1vw;
+    position: absolute;
+    font-size: 2vw;
+    font-weight: bold;
+    color: gold;
+    display: flex;
+    align-items: center;
+}
+
+.product-page .product-image .rating .rating-icon {
+    height: 100%;
+    width: 2vw;
+}
+
+.product-page .product-block .product-block-info {
+    contain: content;
+    position: relative;
+    overflow: scroll;
+    height: 80%;
+    width: 98%;
+    font-size: 1.2vw;
+}
+.product-page .product-block .product-block-info h2 {
+    font-size: 1.5vw;
+    padding: 0.5vw 0;
+}
+
+.product-page .product-block .product-block-info p {
+}
+
+.product-page .product-block .product-block-util {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.product-page .product-block .product-block-util {
+
+}
+.product-page .product-block .product-block-util .add-to-cart {
+    border: 1px solid white;
+    background: firebrick;
+    color: white;
+    padding: 0.7vw;
+    border-radius: 1vw;
+    font-size: 0.8vw;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    transition: scale ease 0.5s, background-color ease 0.5s;
+
+}
+
+.product-page .product-block .product-block-util .add-to-cart:hover {
+    background: #8b1919;
+    scale: 1.1;
+}
+.product-page .product-block .product-block-util .add-to-cart:active {
+    background: #721414;
+    color: #b6b6b6;
+    scale: 1.05;
+}
+
+.product-page .product-block .product-block-util .counter,
+.product-page .product-block .product-block-util .price{
+    margin-left: 1vw;
+}
+
+.product-page .product-block .product-block-util .price {
+    font-weight: bold;
+    color: darkseagreen;
+    font-size: 1.2vw;
+}
+
+.counter {
+    user-select: none;
+    display: flex;
+    align-items: center;
+}
+
+.counter p {
+    margin: 0 0.5vw;
+    font-size: 1vw;
+    font-weight: 700;
+}
+
+.counter .counter-func {
+    width: 1.2vw;
+    height: 1.2vw;
+    transition: all ease 500ms;
+}
+
+.counter .counter-func:hover {
+    transform: scale(1.2);
+    color: #ca5252;
+}
+
+.counter .counter-func:active {
+    transform: scale(1.1);
+    color: #551a1a;
+}

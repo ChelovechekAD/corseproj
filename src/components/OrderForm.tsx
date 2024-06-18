@@ -13,7 +13,7 @@ export default function OrderForm({userIn}: OrderFormProps) {
     const {store} = useContext(Context);
 
     const [formData, setFormData] = useState<UpdateUserRequest>({
-        id: parseInt(user.id),
+        id: user.id,
         name: user.name,
         surname: user.surname,
         building: user.building,
@@ -41,7 +41,7 @@ export default function OrderForm({userIn}: OrderFormProps) {
         //   // Update errors state to display validation errors
         //   setErrors(validationErrors);
         // }
-        store.updateUser(formData);
+        store.updateUser(formData, undefined);
     };
 
     return (
